@@ -1,12 +1,17 @@
 {
+  "homepage": "http://Cray077.github.io/YearBook-TKJ-2",
   "name": "rest-express",
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "start": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
@@ -97,6 +102,7 @@
     "cross-env": "^7.0.3",
     "drizzle-kit": "^0.30.4",
     "esbuild": "^0.25.0",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.1",
